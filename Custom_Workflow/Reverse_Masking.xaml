@@ -5,7 +5,7 @@
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>868.8,615.2</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1370,817</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Reverse_Masking_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -83,7 +83,7 @@
       <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Reverse_Masking" sap:VirtualizedContainerService.HintSize="496,392" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Reverse_Masking" sap:VirtualizedContainerService.HintSize="496,391" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:String)" Name="encodingMap" />
     </Sequence.Variables>
@@ -92,7 +92,7 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <Assign sap:VirtualizedContainerService.HintSize="433.6,115.2" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <Assign DisplayName="Assign - encodingMap" sap:VirtualizedContainerService.HintSize="434,115" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="scg:Dictionary(x:String, x:String)">[encodingMap]</OutArgument>
       </Assign.To>
@@ -111,14 +111,10 @@
 }]</InArgument>
       </Assign.Value>
     </Assign>
-    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Console.WriteLine($&quot;Input Url: {io_Url}&quot;);&#xD;&#xA;foreach (var mapping in in_EncodingMap)&#xD;&#xA;{&#xD;&#xA;    io_Url = io_Url.Replace(mapping.Key, mapping.Value);&#xD;&#xA;}&#xD;&#xA;Console.WriteLine($&quot;Output Url: {io_Url}&quot;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="433.6,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
+    <ui:InvokeCode ContinueOnError="{x:Null}" Code="Console.WriteLine($&quot;Input Url: {io_Url}&quot;);&#xA;foreach (var mapping in in_EncodingMap)&#xA;{&#xA;    io_Url = io_Url.Replace(mapping.Key, mapping.Value);&#xA;}&#xA;Console.WriteLine($&quot;Output Url: {io_Url}&quot;);" DisplayName="Invoke Code" sap:VirtualizedContainerService.HintSize="434,188" sap2010:WorkflowViewState.IdRef="InvokeCode_2" Language="CSharp">
       <ui:InvokeCode.Arguments>
-        <InOutArgument x:TypeArguments="x:String" x:Key="io_Url">
-          <VisualBasicReference x:TypeArguments="x:String" ExpressionText="io_Url" />
-        </InOutArgument>
-        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_EncodingMap">
-          <VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:String)" ExpressionText="encodingMap" />
-        </InArgument>
+        <InOutArgument x:TypeArguments="x:String" x:Key="io_Url">[io_Url]</InOutArgument>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:String)" x:Key="in_EncodingMap">[encodingMap]</InArgument>
       </ui:InvokeCode.Arguments>
     </ui:InvokeCode>
   </Sequence>
